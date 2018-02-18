@@ -1,9 +1,15 @@
 page-item-detail {
+
+  .custom {
+     background-color: #2196f3;
+  }
+
   .item-profile {
     width: 100%;
-    background-position: center center;
-    background-size: cover;
-    height: 250px;
+  background-position: center center;
+  background-size: 80%;
+  height: 250px;
+  background-repeat: no-repeat;
   }
 
   .item-detail {

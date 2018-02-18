@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar #color color="{{item.color}}" [style.background-color]="item.color">
     <ion-title>{{ item.name }}</ion-title>
   </ion-navbar>
 
@@ -8,8 +8,8 @@
 
 
 <ion-content>
-   <svg #barcode id="barcode"></svg>
-  <div class="item-profile" text-center #profilePic [style.background-image]="'url(' + item.profilePic + ')'">
+   <!--svg #barcode id="barcode"></svg-->
+  <div class="item-profile" text-center #img [style.background-image]="'url(' + item.img + ')'">
   </div>
 
   <div class="item-detail" padding>

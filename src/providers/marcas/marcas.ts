@@ -5,7 +5,6 @@ import { Marca } from '../../models/marca';
 const STORAGE_KEY = 'Marcas';
 /*
   Generated class for the MarcasProvider provider.
-
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
@@ -20,39 +19,67 @@ export class Marcas {
 
     let marcas = [
      {
-       "name": "Burt Bear",
-       "profilePic": "assets/img/speakers/bear.jpg",
-       "about": "Burt is a Bear."
+       "name": "Mercadona",
+       "img": "assets/img/marcas/mercadona.png",
+       "about": "",
+       "type": "barcode",
+       "color": "green",
+       "code": ""
      },
      {
-       "name": "Charlie Cheetah",
-       "profilePic": "assets/img/speakers/cheetah.jpg",
-       "about": "Charlie is a Cheetah."
+       "name": "Carrefour",
+       "img": "assets/img/marcas/carrefour.png",
+       "about": "",
+       "type": "barcode",
+       "color": "blue",
+       "code": ""
      },
      {
-       "name": "Donald Duck",
-       "profilePic": "assets/img/speakers/duck.jpg",
-       "about": "Donald is a Duck."
+       "name": "Mutua Madrileña",
+       "img": "assets/img/marcas/mutua.png",
+       "about": "",
+       "type": "barcode",
+       "color": "blue",
+       "code": ""
      },
      {
-       "name": "Eva Eagle",
-       "profilePic": "assets/img/speakers/eagle.jpg",
-       "about": "Eva is an Eagle."
+       "name": "Galp",
+       "img": "assets/img/marcas/galp.png",
+       "about": "",
+       "type": "ocr",
+       "color": "orange",
+       "code": ""
      },
      {
-       "name": "Ellie Elephant",
-       "profilePic": "assets/img/speakers/elephant.jpg",
-       "about": "Ellie is an Elephant."
+       "name": "Prink",
+       "img": "assets/img/marcas/prink.png",
+       "about": "",
+       "type": "barcode",
+       "color": "red",
+       "code": ""
      },
      {
-       "name": "Molly Mouse",
-       "profilePic": "assets/img/speakers/mouse.jpg",
-       "about": "Molly is a Mouse."
+       "name": "QR Code",
+       "img": "assets/img/marcas/qr.png",
+       "about": "",
+       "type": "barcode",
+       "color": "red",
+       "code": ""
      },
      {
-       "name": "Paul Puppy",
-       "profilePic": "assets/img/speakers/puppy.jpg",
-       "about": "Paul is a Puppy."
+       "name": "Barcode",
+       "img": "assets/img/marcas/barcode.png",
+       "about": "",
+       "type": "barcode",
+       "color": "red",
+       "code": ""
+     },{
+       "name": "OCR Code",
+       "img": "assets/img/marcas/ocr.png",
+       "about": "",
+       "type": "ocr",
+       "color": "red",
+       "code": ""
      }
    ];
 

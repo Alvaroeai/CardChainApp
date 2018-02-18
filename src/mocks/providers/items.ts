@@ -11,7 +11,7 @@ items: Item[] = [];
 
 defaultItem: any = {
   "name": "Burt Bear",
-  "profilePic": "assets/img/speakers/bear.jpg",
+  "img": "assets/img/speakers/bear.jpg",
   "about": "Burt is a Bear.",
 };
 

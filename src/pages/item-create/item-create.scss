@@ -4,25 +4,22 @@ page-item-create {
     margin: 20px 0;
 
     .profile-image {
-      width: 96px;
+      width: 80%;
       height: 96px;
-      border-radius: 50%;
-
+      /* border-radius: 50%; */
       display: inline-block;
-
       background-repeat: no-repeat;
-      background-size: cover;
+      background-size: 100%;
       background-position: center;
+      max-width: 650px;
     }
 
     .profile-image-placeholder {
       display: inline-block;
-
       background-color: #eee;
       width: 96px;
       height: 96px;
       border-radius: 50%;
-
       font-size: 12px;
 
       ion-icon {
