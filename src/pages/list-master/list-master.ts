@@ -32,12 +32,12 @@ export class ListMasterPage {
    */
   addItem() {
     let addModal = this.modalCtrl.create('SearchPage');
-    addModal.onDidDismiss(item => {
-      console.log('item'+item)
-      if (item) {
-        this.items.add(item);
-      }
-    })
+    // addModal.onDidDismiss(item => {
+    //   console.log('item'+item)
+    //   if (item) {
+    //     this.items.add(item);
+    //   }
+    // })
     addModal.present();
   }
 

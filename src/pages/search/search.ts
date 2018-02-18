@@ -41,7 +41,7 @@ export class SearchPage {
   openItem(marca: Marca) {
     console.log(marca);
 
-    this.viewCtrl.dismiss(this.marca);
+    this.viewCtrl.dismiss('addModal');
     let addModal = this.modalCtrl.create('ItemCreatePage', {
       marca: marca
     });
