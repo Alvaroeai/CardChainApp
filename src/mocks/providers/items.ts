@@ -15,16 +15,18 @@ defaultItem: any = {
   "about": "Burt is a Bear.",
 };
 
-
 constructor(private storage: Storage) {
-    let items = [];
-    this.storage.get(STORAGE_KEY).then((val) => {
-       this.items.push(val);
-    });
-
-    for (let item of items) {
-      this.items.push(new Item(item));
+  let items = [];
+  this.storage.get(STORAGE_KEY).then((val) => {
+    if(val==null){
+    return null;
+    } else {
+       this.items.push(new Item(val));
     }
+     for (let item of val) {
+       this.items.push(new Item(item));
+     }
+  });
 }
 
   query(params?: any) {
@@ -46,22 +48,13 @@ constructor(private storage: Storage) {
   }
 
   add(item: Item) {
-     this.getAll().then((result) => {
-          if (result) {
-            this.items.push(item);
-            this.storage.set(STORAGE_KEY, result);
-          } else {
-            this.storage.set(STORAGE_KEY, [item]);
-          }
-        });
+    this.items.push(item);
+    this.storage.set(STORAGE_KEY,this.items);
   }
 
   delete(item: Item) {
     this.items.splice(this.items.indexOf(item), 1);
-  }
-
-  getAll() {
-    return this.storage.get(STORAGE_KEY);
+    this.storage.set(STORAGE_KEY,this.items);
   }
 
 }

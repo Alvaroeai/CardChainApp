@@ -69,6 +69,7 @@ export function provideSettings(storage: Storage) {
     Items,
     User,
     Camera,
+    CardIO,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },

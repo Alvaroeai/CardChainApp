@@ -7,8 +7,7 @@ import { Items } from '../../providers/providers';
 @IonicPage()
 @Component({
   selector: 'page-item-detail',
-  templateUrl: 'item-detail.html',
-  template: '<svg #barcode id="barcode"></svg>'
+  templateUrl: 'item-detail.html'
 })
 export class ItemDetailPage {
   item: any;

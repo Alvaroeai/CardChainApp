@@ -24,16 +24,16 @@ export class ScannerPage {
     console.log('Hello CreditCardScan Page');
   }
 
-  cardImage = 'assets/img/misc/credit-card.png';
+  cardImage = 'assets/imgs/credit_card.png';
 
   card = {
     cardType: '',
     cardNumber: '',
     redactedCardNumber: '',
-  //  expiryMonth: null,
-  //  expiryYear: null,
-  //  cvv: '',
-  //  postalCode: ''
+    expiryMonth: null,
+    expiryYear: null,
+    cvv: '',
+    postalCode: ''
   };
 
   scanCard() {
@@ -57,20 +57,20 @@ export class ScannerPage {
               cardType,
               cardNumber,
               redactedCardNumber,
-              //expiryMonth,
-              //expiryYear,
-              //cvv,
-              //postalCode
+              expiryMonth,
+              expiryYear,
+              cvv,
+              postalCode
             } = response;
 
             this.card = {
               cardType,
               cardNumber,
               redactedCardNumber,
-            //  expiryMonth,
-            //  expiryYear,
-            //  cvv,
-            //  postalCode
+              expiryMonth,
+              expiryYear,
+              cvv,
+              postalCode
             };
           });
         }

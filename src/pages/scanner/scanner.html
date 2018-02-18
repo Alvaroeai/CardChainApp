@@ -11,7 +11,39 @@
 </ion-header>
 <ion-content padding>
   <div>
-    <img [src]="cardImage" />
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2>
+          <ion-card>
+            <div class="card">
+                <div class="bank-name">{{card.cardType}}</div>
+                <div class="chip">
+                    <div class="side left"></div>
+                    <div class="side right"></div>
+                    <div class="vertical top"></div>
+                    <div class="vertical bottom"></div>
+                </div>
+                <div class="data">
+                    <div class="pan">{{card.cardNumber}}</div>
+                    <div class="first-digits">4123</div>
+                    <div class="exp-date-wrapper">
+                        <div class="left-label">EXPIRES END</div>
+                        <div class="exp-date">
+                            <div class="upper-labels">MONTH/YEAR</div>
+                            <div class="date">{{card.expiryMonth}}/{{card.expiryYear}}</div>
+                        </div>
+                    </div>
+                    <div class="name-on-card" title="John Doe">John Doe</div>
+                </div>
+                <div class="lines-down"></div>
+                <div class="lines-up"></div>
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!--img [src]="cardImage" /-->
     <ion-fab right class="pop-in" [ngClass]="{'pop-out': fabGone}" style="top: 23rem;">
       <button ion-fab mini (click)="scanCard()" color="dark"><ion-icon name="camera"></ion-icon></button>
     </ion-fab>
