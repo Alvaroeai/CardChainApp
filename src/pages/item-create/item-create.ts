@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
-import { IonicPage, NavController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, ViewController, NavParams} from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -15,12 +15,17 @@ export class ItemCreatePage {
 
   item: any;
 
+  marca: any;
+
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+    this.marca = navParams.get('marca');
+    console.log(this.marca.name);
+
     this.form = formBuilder.group({
-      profilePic: [''],
-      name: ['', Validators.required],
+      profilePic: [this.marca.profilePic],
+      name: [this.marca.name, Validators.required],
       about: ['']
     });
 

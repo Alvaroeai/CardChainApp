@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, ModalController } from 'ionic-angular';
 
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
+
+import { Marca } from '../../models/marca';
+import { Marcas } from '../../providers/providers';
 
 @IonicPage()
 @Component({
@@ -13,7 +16,9 @@ export class SearchPage {
 
   currentItems: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public items: Items) { }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, public marcas: Marcas, public items: Items, public modalCtrl: ModalController) {
+    this.currentItems = this.marcas.query();
+  }
 
   /**
    * Perform a service for the proper items.
@@ -24,7 +29,7 @@ export class SearchPage {
       this.currentItems = [];
       return;
     }
-    this.currentItems = this.items.query({
+    this.currentItems = this.marcas.query({
       name: val
     });
   }
@@ -32,10 +37,25 @@ export class SearchPage {
   /**
    * Navigate to the detail page for this item.
    */
-  openItem(item: Item) {
-    this.navCtrl.push('ItemDetailPage', {
-      item: item
+
+  openItem(marca: Marca) {
+    console.log(marca);
+
+    this.viewCtrl.dismiss(this.marca);
+    let addModal = this.modalCtrl.create('ItemCreatePage', {
+      marca: marca
     });
+    addModal.onDidDismiss(item => {
+      console.log('item'+item)
+      if (item) {
+        this.items.add(item);
+      }
+    })
+    addModal.present();
+
+    // this.navCtrl.push('ItemCreatePage', {
+    //   marca: marca
+    // });
   }
 
 }

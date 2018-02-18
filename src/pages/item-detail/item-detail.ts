@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import JsBarcode from 'jsbarcode';
+//import JsBarcode from 'jsbarcode';
 
 import { Items } from '../../providers/providers';
 
@@ -12,15 +12,14 @@ import { Items } from '../../providers/providers';
 export class ItemDetailPage {
   item: any;
   public picture;
-  @ViewChild('barcode') barcode: ElementRef;
+//  @ViewChild('barcode') barcode: ElementRef;
 
   constructor(public navCtrl: NavController, navParams: NavParams, items: Items) {
     this.item = navParams.get('item') || items.defaultItem;
-
   }
 
   ionViewDidLoad(){
-     JsBarcode(this.barcode.nativeElement, '12345');
+  //   JsBarcode(this.barcode.nativeElement, '12345');
     }
 
 }

@@ -16,16 +16,16 @@ defaultItem: any = {
 };
 
 constructor(private storage: Storage) {
-  let items = [];
   this.storage.get(STORAGE_KEY).then((val) => {
     if(val==null){
     return null;
     } else {
-       this.items.push(new Item(val));
+       //this.items.push(val);
+       for (let item of val) {
+         this.items.push(new Item(item));
+       }
     }
-     for (let item of val) {
-       this.items.push(new Item(item));
-     }
+
   });
 }
 

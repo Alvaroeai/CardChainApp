@@ -10,13 +10,16 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { CardIO } from '@ionic-native/card-io';
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import JsBarcode from 'jsbarcode';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+//import JsBarcode from 'jsbarcode';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';
 import { User } from '../providers/providers';
 import { Api } from '../providers/providers';
 import { MyApp } from './app.component';
+import { Marcas } from '../providers/marcas/marcas';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -70,6 +73,9 @@ export function provideSettings(storage: Storage) {
     User,
     Camera,
     CardIO,
+    Marcas,
+    BarcodeScanner,
+    QRScanner,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },

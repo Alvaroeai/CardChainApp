@@ -31,8 +31,9 @@ export class ListMasterPage {
    * modal and then adds the new item to our data source if the user created one.
    */
   addItem() {
-    let addModal = this.modalCtrl.create('ScannerPage');
+    let addModal = this.modalCtrl.create('SearchPage');
     addModal.onDidDismiss(item => {
+      console.log('item'+item)
       if (item) {
         this.items.add(item);
       }
