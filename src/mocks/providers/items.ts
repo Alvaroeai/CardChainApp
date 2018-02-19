@@ -10,9 +10,13 @@ export class Items {
 items: Item[] = [];
 
 defaultItem: any = {
-  "name": "Burt Bear",
-  "img": "assets/img/speakers/bear.jpg",
-  "about": "Burt is a Bear.",
+  "name": "Tarjeta personalizada",
+  "img": "assets/img/marcas/ocr.png",
+  "about": "",
+  "type": "ocr",
+  "color": "red",
+  "code": "",
+  "format": ""
 };
 
 constructor(private storage: Storage) {

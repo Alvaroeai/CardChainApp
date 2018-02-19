@@ -16,7 +16,11 @@
 // automatically applied to the <body> element in the app.
 @import url(https://fonts.googleapis.com/css?family=Iceland);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,800);
-
+.cardStyle {
+    padding: 35px;
+    height: 100px;
+}
+.cardStyle h2 { color: #fff; text-align: center; font-weight: 700; text-transform: uppercase;}
 // Start with assigning color names to specific hex values.
 $white:  #fff !default;
 $black:  #000 !default;

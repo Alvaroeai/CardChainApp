@@ -10,7 +10,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { CardIO } from '@ionic-native/card-io';
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 //import JsBarcode from 'jsbarcode';
 

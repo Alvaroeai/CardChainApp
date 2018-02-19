@@ -2,6 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Camera } from '@ionic-native/camera';
 import { IonicPage, NavController, ViewController, NavParams} from 'ionic-angular';
+import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
+import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
 @IonicPage()
 @Component({
@@ -10,6 +12,10 @@ import { IonicPage, NavController, ViewController, NavParams} from 'ionic-angula
 })
 export class ItemCreatePage {
   @ViewChild('fileInput') fileInput;
+  scanData : {};
+     encodeData : string ;
+     encodedData : {} ;
+     options :BarcodeScannerOptions;
 
   isReadyToSave: boolean;
 
@@ -19,7 +25,7 @@ export class ItemCreatePage {
 
   form: FormGroup;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, formBuilder: FormBuilder, public camera: Camera, private qrScanner: QRScanner, private barcodeScanner: BarcodeScanner) {
     this.marca = navParams.get('marca');
     console.log(this.marca.name);
 
@@ -39,7 +45,61 @@ export class ItemCreatePage {
   }
 
   ionViewDidLoad() {
+  //  alert(this.marca.type);
+    if(this.marca.type=='barcode'){
+      this.ScanBarcode();
+    } else if(this.marca.type=='qr'){
+      this.ScanQR();
+    } else if(this.marca.type=='ocr'){
+    //  this.ScanOCR();
+    }
 
+  }
+
+
+  //BARCODE SCANNER
+  ScanBarcode(){
+    this.barcodeScanner.scan().then((barcodeData) => {
+    // Success! Barcode data is here
+      console.log('Success! Barcode data is here'+ barcodeData);
+      this.form.patchValue({ 'code': barcodeData });
+    }, (err) => {
+      // An error occurred
+      console.log('An error occurred'+ err);
+    });
+  }
+
+  //QR SCANNER
+  ScanQR(){
+  // Optionally request the permission early
+  this.qrScanner.prepare()
+  .then((status: QRScannerStatus) => {
+     if (status.authorized) {
+       // camera permission was granted
+
+
+       // start scanning
+       let scanSub = this.qrScanner.scan().subscribe((text: string) => {
+         console.log('Scanned something', text);
+         this.form.patchValue({ 'code': text });
+         this.qrScanner.hide(); // hide camera preview
+         scanSub.unsubscribe(); // stop scanning
+       });
+
+       // show camera preview
+       this.qrScanner.show();
+
+       // wait for user to scan something, then the observable callback will be called
+
+     } else if (status.denied) {
+       // camera permission was permanently denied
+       // you must use QRScanner.openSettings() method to guide the user to the settings page
+       // then they can grant the permission from there
+     } else {
+       // permission was denied, but not permanently. You can ask for permission again at a later time.
+     }
+  })
+  .catch((e: any) => console.log('Error is', e));
   }
 
   getPicture() {

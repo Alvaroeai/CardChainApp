@@ -24,7 +24,8 @@ export class Marcas {
        "about": "",
        "type": "barcode",
        "color": "green",
-       "code": ""
+       "code": "",
+       "format": ""
      },
      {
        "name": "Carrefour",
@@ -32,7 +33,8 @@ export class Marcas {
        "about": "",
        "type": "barcode",
        "color": "blue",
-       "code": ""
+       "code": "",
+       "format": ""
      },
      {
        "name": "Mutua Madrileña",
@@ -40,7 +42,8 @@ export class Marcas {
        "about": "",
        "type": "barcode",
        "color": "blue",
-       "code": ""
+       "code": "",
+       "format": ""
      },
      {
        "name": "Galp",
@@ -48,7 +51,8 @@ export class Marcas {
        "about": "",
        "type": "ocr",
        "color": "orange",
-       "code": ""
+       "code": "",
+       "format": ""
      },
      {
        "name": "Prink",
@@ -56,7 +60,8 @@ export class Marcas {
        "about": "",
        "type": "barcode",
        "color": "red",
-       "code": ""
+       "code": "",
+       "format": ""
      },
      {
        "name": "QR Code",
@@ -64,7 +69,8 @@ export class Marcas {
        "about": "",
        "type": "barcode",
        "color": "red",
-       "code": ""
+       "code": "",
+       "format": ""
      },
      {
        "name": "Barcode",
@@ -72,14 +78,16 @@ export class Marcas {
        "about": "",
        "type": "barcode",
        "color": "red",
-       "code": ""
+       "code": "",
+       "format": ""
      },{
        "name": "OCR Code",
        "img": "assets/img/marcas/ocr.png",
        "about": "",
        "type": "ocr",
        "color": "red",
-       "code": ""
+       "code": "",
+       "format": ""
      }
    ];
 

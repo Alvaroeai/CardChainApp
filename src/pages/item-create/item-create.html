@@ -39,7 +39,9 @@
         <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}" formControlName="name">{{marca.name}}</ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="about">{{marca.about}}</ion-input>
+        <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="code">{{marca.code.text}}</ion-input>
+
+
       </ion-item>
     </ion-list>
   </form>
