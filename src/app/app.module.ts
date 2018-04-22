@@ -12,7 +12,7 @@ import { CardIO } from '@ionic-native/card-io';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
-//import JsBarcode from 'jsbarcode';
+import JsBarcode from 'jsbarcode';
 
 import { Items } from '../mocks/providers/items';
 import { Settings } from '../providers/providers';

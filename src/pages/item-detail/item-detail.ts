@@ -4,7 +4,7 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
-//import JsBarcode from 'jsbarcode';
+import JsBarcode from 'jsbarcode';
 
 import { Items } from '../../providers/providers';
 
@@ -18,7 +18,7 @@ export class ItemDetailPage {
   public picture;
 //  public color: string = 'blue-yellow';
   public color: string = 'custom';
-//  @ViewChild('barcode') barcode: ElementRef;
+  @ViewChild('barcode') barcode: ElementRef;
 scanData : {};
 encodeData : string ;
 encodedData : {} ;
@@ -31,7 +31,7 @@ options :BarcodeScannerOptions;
   }
 
   ionViewDidLoad(){
-  //   JsBarcode(this.barcode.nativeElement, '12345');
+   JsBarcode(this.barcode.nativeElement, this.item.code.text);
   //this.encodeText();
     }
 
@@ -46,6 +46,10 @@ options :BarcodeScannerOptions;
    }, (err) => {
        console.log("Error occured : " + err);
      });
+
     }
+
+
+
 
 }

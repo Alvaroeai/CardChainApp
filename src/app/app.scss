@@ -435,3 +435,67 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="rgba(45, 33, 166, 0)", endColorstr="#2d21a6", GradientType=1);
   /* IE6-9 fallback on horizontal gradient */
 }
+
+ion-item.item.item-block.item-md {
+    padding: 0px;
+}
+
+  button.item.item-block.item-md {
+      margin-left: 0px;
+      padding-left: 0px;
+  }
+
+ion-label.label.label-md {
+    padding: 0px;
+    margin: 0px;
+}
+.card-md .item-md.item-block .item-inner {
+  border: 0;
+  margin: 0px;
+  padding: 0px;
+}
+
+.item-md.item-block .item-inner {
+  padding-right: 0px!important;
+  border-bottom: 1px solid #dedede;
+}
+
+[col-xl-2] {
+    padding: 3px;
+}
+
+.card-md {
+    margin: 0px;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1.4rem;
+  }
+  ion-card.card.card-ios {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+ion-item-sliding.item-wrapper {
+    padding: 0px;
+}
+
+ion-item.item.item-block.item-ios {
+    padding: 0px;
+    margin: 0px;
+}
+
+.item-inner {
+    padding: 0px!important;
+    margin: 0px;
+}
+
+.input-wrapper {
+    margin: 0px;
+    padding: 0px;
+}
+
+ion-label.label.label-ios {
+    margin: 0px;
+    padding: 0px;
+}

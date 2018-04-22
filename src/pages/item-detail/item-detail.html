@@ -1,20 +1,16 @@
 <ion-header>
-
   <ion-navbar #color color="{{item.color}}" [style.background-color]="item.color">
     <ion-title>{{ item.name }}</ion-title>
   </ion-navbar>
-
 </ion-header>
-
-
 <ion-content>
-   <!--svg #barcode id="barcode"></svg-->
-  <div class="item-profile" text-center #img [style.background-image]="'url(' + item.img + ')'">
+  <!--div class="item-profile" text-center #img [style.background-image]="'url(' + item.img + ')'">
+  </div-->
+  <div class="item-detail" padding text-center>
+    <ion-input type="text" [(ngModel)]="encodedData" ></ion-input>
+    <!--h2>{{item.name}}</h2-->
+    <!--p>{{item.code.text}}</p-->
+    <svg #barcode id="barcode"></svg>
   </div>
 
-  <div class="item-detail" padding>
-    <!--ion-input type="text" [(ngModel)]="encodedData" ></ion-input-->
-    <h2>{{item.name}}</h2>
-    <p>{{item.code.text}}</p>
-  </div>
 </ion-content>
