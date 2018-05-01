@@ -118,7 +118,8 @@ scan(){
       console.log(barcodeData.Encode);
       this.scanData = barcodeData;
       this.form.patchValue({ 'code': barcodeData });
-      this.encodeText(this.barcodeScanner.Encode.TEXT_TYPE,this.encodeData)
+      this.encodeText(barcodeData.format,barcodeData.text)
+      //this.encodeText(this.barcodeScanner.Encode.TEXT_TYPE,this.encodeData)
     }, (err) => {
       // An error occurred
       console.log('An error occurred'+ err);
