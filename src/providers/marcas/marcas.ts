@@ -17,77 +17,144 @@ export class Marcas {
     console.log('Hello MarcasProvider Provider');
     //let marcas = [];
 
-    let marcas = [
+    let marcas = [{
+      "name": "Otra tarjeta",
+      "img": "assets/img/cards/mercadona.png",
+      "about": "",
+      "type": "barcode",
+      "color": "green",
+      "code": "",
+      "format": "",
+      "category":""
+    },
      {
        "name": "Mercadona",
-       "img": "assets/img/marcas/mercadona.png",
+       "img": "assets/img/cards/mercadona.png",
        "about": "",
        "type": "barcode",
        "color": "green",
        "code": "",
-       "format": ""
+       "format": "",
+       "category":""
      },
      {
        "name": "Carrefour",
-       "img": "assets/img/marcas/carrefour.png",
+       "img": "assets/img/cards/carrefour.png",
        "about": "",
        "type": "barcode",
        "color": "blue",
        "code": "",
-       "format": ""
+       "format": "",
+       "category":""
+     },
+     {
+       "name": "Dia",
+       "img": "assets/img/cards/dia.png",
+       "about": "",
+       "type": "barcode",
+       "color": "red",
+       "code": "",
+       "format": "",
+       "category":""
+     },
+     {
+       "name": "Hiper Usera",
+       "img": "assets/img/cards/hiperusera.png",
+       "about": "",
+       "type": "barcode",
+       "color": "green",
+       "code": "",
+       "format": "",
+       "category":""
      },
      {
        "name": "Mutua Madrileña",
-       "img": "assets/img/marcas/mutua.png",
+       "img": "assets/img/cards/mutuamadrilena.png",
        "about": "",
        "type": "barcode",
        "color": "blue",
        "code": "",
-       "format": ""
+       "format": "",
+       "category":""
      },
      {
        "name": "Galp",
-       "img": "assets/img/marcas/galp.png",
+       "img": "assets/img/cards/galp.png",
        "about": "",
        "type": "ocr",
        "color": "orange",
        "code": "",
-       "format": ""
+       "format": "",
+       "category":""
      },
      {
-       "name": "Prink",
-       "img": "assets/img/marcas/prink.png",
-       "about": "",
-       "type": "barcode",
-       "color": "red",
-       "code": "",
-       "format": ""
-     },
-     {
-       "name": "QR Code",
-       "img": "assets/img/marcas/qr.png",
-       "about": "",
-       "type": "barcode",
-       "color": "red",
-       "code": "",
-       "format": ""
-     },
-     {
-       "name": "Barcode",
-       "img": "assets/img/marcas/barcode.png",
-       "about": "",
-       "type": "barcode",
-       "color": "red",
-       "code": "",
-       "format": ""
-     },{
-       "name": "OCR Code",
-       "img": "assets/img/marcas/ocr.png",
+       "name": "Cepsa",
+       "img": "assets/img/cards/cepsa.png",
        "about": "",
        "type": "ocr",
        "color": "red",
        "code": "",
-       "format": ""
+       "format": "",
+       "category":""
+     },
+     {
+       "name": "BP",
+       "img": "assets/img/cards/bp.png",
+       "about": "",
+       "type": "ocr",
+       "color": "green",
+       "code": "",
+       "format": "",
+       "category":""
+     },
+     {
+       "name": "Ikea",
+       "img": "assets/img/cards/IKEA.png",
+       "about": "",
+       "type": "barcode",
+       "color": "orange",
+       "code": "",
+       "format": "",
+       "category":""
+     },
+     {
+       "name": "Travel Club",
+       "img": "assets/img/cards/travelclub.png",
+       "about": "",
+       "type": "barcode",
+       "color": "blue",
+       "code": "",
+       "format": "",
+       "category":""
+     },
+     {
+       "name": "QR Code",
+       "img": "assets/img/cards/transparent.png",
+       "about": "",
+       "type": "barcode",
+       "color": "red",
+       "code": "",
+       "format": "",
+       "category":""
+     },
+     {
+       "name": "Barcode",
+       "img": "assets/img/cards/transparent.png",
+       "about": "",
+       "type": "barcode",
+       "color": "red",
+       "code": "",
+       "format": "",
+       "category":""
+     },{
+       "name": "OCR Code",
+       "img": "assets/img/cards/transparent.png",
+       "about": "",
+       "type": "ocr",
+       "color": "red",
+       "code": "",
+       "format": "",
+       "category":""
      }
    ];
 

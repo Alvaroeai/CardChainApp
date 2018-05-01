@@ -11,9 +11,9 @@
   <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
   <ion-list>
     <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
-      <ion-avatar item-start>
+      <ion-thumbnail item-start class="customized-image" >
         <img [src]="item.img" />
-      </ion-avatar>
+      </ion-thumbnail>
       <h2>{{item.name}}</h2>
       <p>{{item.about}}</p>
       <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>

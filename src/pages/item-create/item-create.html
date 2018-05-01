@@ -45,7 +45,7 @@
       </ion-item>
     </ion-list>
   </form>
-<img src="assets/img/marcas/ocr.png" #demoImg class="start-api" />
+<img src="assets/img/demo.jpg" #demoImg class="start-api" />
 <img [src]="image" #imageResult />
 
 
@@ -108,7 +108,17 @@
 
         </ion-list>
   </div>
+  <button ion-button (click)="scan()">Scan ... </button>
+    <div *ngIf="scanData">
+        <p>Scanned Text : </p>
+        <p>Scanned Format : </p>
 
+    </div>
+    {{scanData | json}}
+    {{encodedData | json}}
+  {{barcodeScanner | json}}
+  <ion-input type="text" [(ngModel)]="encodeData" ></ion-input>
+      <button ion-button (click)="encodeText()">Encode Text</button>
   <ion-fab right bottom>
     <button ion-fab (click)="openMenu()" color="danger"><ion-icon name="add"></ion-icon></button>
   </ion-fab>

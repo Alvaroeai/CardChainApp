@@ -5,6 +5,7 @@ import { IonicPage, NavController, ViewController, NavParams} from 'ionic-angula
 import { Platform, ActionSheetController, LoadingController } from 'ionic-angular';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+import { CardIO } from '@ionic-native/card-io';
 
 import Tesseract from 'tesseract.js';
 
@@ -19,9 +20,9 @@ export class ItemCreatePage {
 
   @ViewChild('fileInput') fileInput;
   scanData : {};
-     encodeData : string ;
-     encodedData : {} ;
-     options :BarcodeScannerOptions;
+   encodeData : string ;
+   encodedData : {} ;
+   options :BarcodeScannerOptions;
 
   isReadyToSave: boolean;
 
@@ -56,6 +57,7 @@ debugText: string = '';
     public navParams: NavParams,
     public viewCtrl: ViewController,
     formBuilder: FormBuilder,
+    private cardIO: CardIO,
     private qrScanner: QRScanner,
     private barcodeScanner: BarcodeScanner) {
 
@@ -79,14 +81,44 @@ debugText: string = '';
     });
   }
 
+  encodeText(type, data){
+      this.barcodeScanner.encode(type,data).then((encodedData) => {
+          this.encodedData = encodedData;
+          this.demoImg.nativeElement.src = encodedData.file;
+          //this.image = encodedData.file;
+          console.log(encodedData.file);
+          //this.form.patchValue({ 'img': encodedData.file });
+      }, (err) => {
+          console.log("Error occured : " + err);
+      });
+}
 
+scan(){
+    this.options = {
+        prompt : "Scan your barcode "
+    }
+    this.barcodeScanner.scan(this.options).then((barcodeData) => {
+        console.log(barcodeData.text);
+        console.log(barcodeData.format);
+        console.log(barcodeData.cancelled);
+        this.scanData = barcodeData;
+    }, (err) => {
+        console.log("Error occured : " + err);
+    });
+}
 
   //BARCODE SCANNER
   ScanBarcode(){
     this.barcodeScanner.scan().then((barcodeData) => {
     // Success! Barcode data is here
       console.log('Success! Barcode data is here'+ barcodeData);
+      console.log(barcodeData.text);
+      console.log(barcodeData.format);
+      console.log(barcodeData.cancelled);
+      console.log(barcodeData.Encode);
+      this.scanData = barcodeData;
       this.form.patchValue({ 'code': barcodeData });
+      this.encodeText(this.barcodeScanner.Encode.TEXT_TYPE,this.encodeData)
     }, (err) => {
       // An error occurred
       console.log('An error occurred'+ err);
@@ -126,6 +158,62 @@ debugText: string = '';
   .catch((e: any) => console.log('Error is', e));
   }
 
+  cardImage = 'assets/imgs/credit_card.png';
+
+  card = {
+    cardType: '',
+    cardNumber: '',
+    redactedCardNumber: '',
+    expiryMonth: null,
+    expiryYear: null,
+    cvv: '',
+    postalCode: ''
+  };
+
+//SCAN CARD IO
+getCardIO() {
+
+  this.cardIO.canScan()
+    .then(
+    (res: boolean) => {
+      if (res) {
+        const options = {
+          scanExpiry: true,
+          hideCardIOLogo: true,
+          scanInstructions: 'Por favor coloque su tarjeta dentro del marco',
+          keepApplicationTheme: true,
+          requireCCV: false,
+          requireExpiry: false,
+          requirePostalCode: false,
+          requireCardholderName: false
+        };
+        this.cardIO.scan(options).then(response => {
+          console.log('Scan complete');
+
+          const {
+            cardType,
+            cardNumber,
+            redactedCardNumber,
+            expiryMonth,
+            expiryYear,
+            cvv,
+            postalCode
+          } = response;
+
+          this.card = {
+            cardType,
+            cardNumber,
+            redactedCardNumber,
+            expiryMonth,
+            expiryYear,
+            cvv,
+            postalCode
+          };
+        });
+      }
+    });
+}
+
   getPicture() {
     if (Camera['installed']()) {
       this.camera.getPicture({
@@ -134,10 +222,8 @@ debugText: string = '';
         targetHeight: 96
       }).then((data) => {
         this.form.patchValue({ 'img': 'data:image/jpg;base64,' + data });
-
-
         console.log('loaded')
-        this.analyze(this.demoImg.nativeElement.src, true);
+        this.analyze(data, true);
 
       }, (err) => {
         alert('Unable to take photo');
@@ -236,7 +322,7 @@ debugText: string = '';
                      text: 'Apply filters',
                      icon: !this.platform.is('ios') ? 'barcode' : null,
                      handler: () => {
-                       this.filter()
+                       //this.filter()
                      }
                    },
                    {
@@ -290,14 +376,16 @@ debugText: string = '';
            });
            loader.present();
 
+           if (Camera['installed']()) {
            // Take a picture saving in device, as jpg and allows edit
+
            this.camera.getPicture({
              quality: 100,
-             destinationType: this.camera.DestinationType.NATIVE_URI,
+             destinationType: this.camera.DestinationType.DATA_URL,
              encodingType: this.camera.EncodingType.JPEG,
              targetHeight: 1000,
              sourceType: 1,
-             allowEdit: true,
+            allowEdit: true,
              saveToPhotoAlbum: true,
              correctOrientation: true
            }).then((imageURI) => {
@@ -306,10 +394,12 @@ debugText: string = '';
              this.image = imageURI;
              this.debugText = imageURI;
 
+             alert(imageURI);
+
            }, (err) => {
              console.log(`ERROR -> ${JSON.stringify(err)}`);
            });
-         }
+         } }
 
          filter() {
            /// Initialization of glfx.js
@@ -361,6 +451,8 @@ debugText: string = '';
                  }
                  console.log('Tesseract result: ');
                  console.log(tesseractResult.text);
+                this.form.patchValue({ 'code': tesseractResult.text });
+
                  /// Show a result if data isn't initializtion
                  if (loadAPI != true) { this.recognizedText = tesseractResult.text; }
                });
@@ -370,8 +462,6 @@ debugText: string = '';
          randomDemo() {
 
          }
-
-
            ionViewDidLoad() {
            //  alert(this.marca.type);
              if(this.marca.type=='barcode'){
@@ -379,7 +469,10 @@ debugText: string = '';
              } else if(this.marca.type=='qr'){
                this.ScanQR();
              } else if(this.marca.type=='ocr'){
-               this.getPicture();
+               //console.log('loaded')
+               this.getCardIO();
+               //this.takePicture();
+		          //this.analyze(this.demoImg.nativeElement.src, true);
              }
 
 
