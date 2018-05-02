@@ -1,19 +1,18 @@
 page-item-create {
   .profile-image-wrapper {
     text-align: center;
-    margin: -20px 0;
+    margin: 0px 0;
 
     .profile-image {
       width: 100%;
-      height: 250px;
+      height: 137px;
       /* border-radius: 50%; */
       display: inline-block;
       background-repeat: no-repeat;
-      background-size: 100%;
+      background-size: 50%;
       background-position: center;
       max-width: 650px;
     }
-
     .profile-image-placeholder {
       display: inline-block;
       background-color: #eee;

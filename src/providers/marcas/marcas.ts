@@ -25,7 +25,11 @@ export class Marcas {
       "color": "green",
       "code": "",
       "format": "",
-      "category":""
+      "category":"",
+      "code_image":"",
+      "image_front":"assets/img/cards/front.png",
+      "image_back":"assets/img/cards/back.png",
+      "custom":false,
     },
      {
        "name": "Mercadona",
@@ -35,7 +39,11 @@ export class Marcas {
        "color": "green",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Carrefour",
@@ -45,7 +53,11 @@ export class Marcas {
        "color": "blue",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Dia",
@@ -55,7 +67,11 @@ export class Marcas {
        "color": "red",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Hiper Usera",
@@ -65,7 +81,11 @@ export class Marcas {
        "color": "green",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Mutua Madrileña",
@@ -75,37 +95,53 @@ export class Marcas {
        "color": "blue",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Galp",
        "img": "assets/img/cards/galp.png",
        "about": "",
-       "type": "ocr",
+       "type": "barcode",
        "color": "orange",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Cepsa",
        "img": "assets/img/cards/cepsa.png",
        "about": "",
-       "type": "ocr",
+       "type": "barcode",
        "color": "red",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "BP",
        "img": "assets/img/cards/bp.png",
        "about": "",
-       "type": "ocr",
+       "type": "barcode",
        "color": "green",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Ikea",
@@ -115,7 +151,11 @@ export class Marcas {
        "color": "orange",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Travel Club",
@@ -125,7 +165,11 @@ export class Marcas {
        "color": "blue",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "QR Code",
@@ -135,7 +179,11 @@ export class Marcas {
        "color": "red",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },
      {
        "name": "Barcode",
@@ -145,16 +193,24 @@ export class Marcas {
        "color": "red",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      },{
        "name": "OCR Code",
        "img": "assets/img/cards/transparent.png",
        "about": "",
-       "type": "ocr",
+       "type": "barcode",
        "color": "red",
        "code": "",
        "format": "",
-       "category":""
+       "category":"",
+       "code_image":"",
+       "image_front":"assets/img/cards/front.png",
+       "image_back":"assets/img/cards/back.png",
+       "custom":true,
      }
    ];
 

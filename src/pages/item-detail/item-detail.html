@@ -3,14 +3,27 @@
     <ion-title>{{ item.name }}</ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content [style.background-color]="item.color">
+  <div class="profile-image-wrapper" [style.background-color]="item.color">
+    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" ></div>
+  </div>
   <!--div class="item-profile" text-center #img [style.background-image]="'url(' + item.img + ')'">
   </div-->
-  <div class="item-detail" padding text-center>
-    <ion-input type="text" [(ngModel)]="encodedData" ></ion-input>
+  <div class="item-detail" padding text-center >
+    <!-- <ion-input type="text" [(ngModel)]="encodedData" ></ion-input> -->
     <!--h2>{{item.name}}</h2-->
     <!--p>{{item.code.text}}</p-->
-    <svg #barcode id="barcode"></svg>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-card>
+            <ion-card-content text-center>
+              <svg #barcode id="barcode"  *ngIf="showBarcode"></svg>
+              <img [src]="imageCode" height="180px"  *ngIf="showQRCode" />
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
-
 </ion-content>

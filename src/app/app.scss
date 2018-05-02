@@ -27,7 +27,7 @@ $black:  #000 !default;
 $red:    #d9534f !default;
 $orange: #f0ad4e !default;
 $yellow: #ffd500 !default;
-$green:  #5cb85c !default;
+$green:  #00823f !default;
 $blue:   #0275d8 !default;
 $teal:   #5bc0de !default;
 $pink:   #ff5b77 !default;
@@ -508,3 +508,9 @@ ion-label.label.label-ios {
     padding: 0px!important;
     min-height: auto!important;
 }
+
+.hide {
+  display: none;
+}
+
+#barcode { width: 100%; max-width: 500px; height: 250px}
