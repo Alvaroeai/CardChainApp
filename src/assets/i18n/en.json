@@ -8,7 +8,7 @@
   "LOGIN": "Sign in",
   "SIGNUP": "Sign up",
 
-  "TAB1_TITLE": "Items",
+  "TAB1_TITLE": "My Cards",
   "TAB2_TITLE": "Search",
   "TAB3_TITLE": "Settings",
 
@@ -32,7 +32,7 @@
 
   "SETTINGS_TITLE": "Settings",
   "SETTINGS_OPTION1": "Option 1",
-  "SETTINGS_OPTION2": "Option 2",
+  "SETTINGS_OPTION2": "Touch ID",
   "SETTINGS_OPTION3": "Option 3",
   "SETTINGS_OPTION4": "Option 4",
 
@@ -49,9 +49,9 @@
   "SIGNUP_ERROR": "Unable to create account. Please check your account information and try again.",
   "SIGNUP_BUTTON": "Sign up",
 
-  "LIST_MASTER_TITLE": "Items",
+  "LIST_MASTER_TITLE": "My Cards",
 
-  "ITEM_CREATE_TITLE": "New Item",
+  "ITEM_CREATE_TITLE": "New Card",
   "ITEM_CREATE_CHOOSE_IMAGE": "Add Image",
 
   "ITEM_NAME_PLACEHOLDER": "Name",
@@ -64,5 +64,12 @@
   "CARDS_TITLE": "Social",
 
   "SEARCH_TITLE": "Search",
-  "SEARCH_PLACEHOLDER": "Search the items list, e.g. \"Donald Duck\""
+  "SEARCH_PLACEHOLDER": "Search the card",
+
+  "SETTINGS_BLOCK_TITLE_1":"Account",
+  "SETTINGS_BLOCK_TITLE_2":"Security",
+  "SETTINGS_BLOCK_TITLE_3":"Information",
+  "SETTINGS_LEGAL1": "Condiciones de uso",
+  "SETTINGS_LEGAL2": "Privacidad",
+  "SETTINGS_LEGAL3": "Aviso legal"
 }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+import { Brightness } from '@ionic-native/brightness';
 
 import JsBarcode from 'jsbarcode';
 
@@ -26,13 +27,16 @@ export class ItemDetailPage {
   showQRCode: boolean =  true;
   encodedData: {};
   options: BarcodeScannerOptions;
-  constructor(private _sanitizer: DomSanitizer, public navCtrl: NavController, navParams: NavParams, items: Items, private qrScanner: QRScanner, private barcodeScanner: BarcodeScanner) {
+  constructor(private _sanitizer: DomSanitizer, private brightness: Brightness, public navCtrl: NavController, navParams: NavParams, items: Items, private qrScanner: QRScanner, private barcodeScanner: BarcodeScanner) {
     this.item = navParams.get('item') || items.defaultItem;
     console.log(this.color);
     let color = this.item.color;
   }
 
   ionViewDidLoad() {
+    let brightnessValue = 0.8;
+    this.brightness.setBrightness(brightnessValue);
+
     JsBarcode(this.barcode.nativeElement, this.item.code);
     this.encodeText();
     console.log(this.item.type);
@@ -47,7 +51,7 @@ export class ItemDetailPage {
   }
 
   encodeText() {
-    this.barcodeScanner.encode(this.barcodeScanner.Encode.TEXT_TYPE, this.item.code).then((encodedData) => {
+    this.barcodeScanner.encode('EAN_8', this.item.code).then((encodedData) => {
       // alert(encodedData);
       this.encodedData = encodedData;
       this.imageCode = encodedData.file

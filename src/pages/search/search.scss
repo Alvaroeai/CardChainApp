@@ -1,3 +1,17 @@
 page-search {
+  ion-item.item.item-block.item-md {
+    padding: 0;
+  }
 
+  button.item.item-block.item-md {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .item-ios ion-avatar[item-left], .item-ios ion-thumbnail[item-left], .item-ios ion-avatar[item-start], .item-ios ion-thumbnail[item-start] {
+
+      margin: 0px 10px 0px 0px;
+  }
+  button.item.item-block.item-ios {
+    padding-left: 5px;
+}
 }

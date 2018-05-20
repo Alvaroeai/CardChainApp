@@ -1,5 +1,5 @@
-<ion-header>
-  <ion-navbar #color color="{{marca.color}}">
+<ion-header no-border>
+  <ion-navbar transparent color="red">
     <ion-title>{{ 'ITEM_CREATE_TITLE' | translate }}</ion-title>
     <!-- <ion-buttons start>
       <button ion-button (click)="cancel()">
@@ -37,7 +37,7 @@
         <ion-col col-12>
           <ion-card>
             <ion-card-content text-center>
-              <img #imageCode height="180px" />
+              <img #imageCode [src]="imageCode" height="180px" />
             </ion-card-content>
           </ion-card>
         </ion-col>
@@ -50,7 +50,7 @@
               </ion-item>
               <ion-item>
                 <ion-label color="primary" stacked>{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}</ion-label>
-                <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}" formControlName="code">{{marca.code}}</ion-input>
+                <ion-input type="text" placeholder="{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}"  (ionChange)="encodeText(marca.format,marca.code)" formControlName="code">{{marca.code}}</ion-input>
               </ion-item>
             </ion-card-content>
           </ion-card>
@@ -81,19 +81,13 @@
     </ion-grid>
   </form>
   <ion-fab right bottom>
-    <button ion-fab (click)="done()" [disabled]="!isReadyToSave" strong>
-        <span color="light" showWhen="ios">
-          {{ 'DONE_BUTTON' | translate }}
-        </span>
-        <ion-icon name="md-checkmark" showWhen="core,android,windows"></ion-icon>
+    <button  color="light" ion-fab (click)="done()" [disabled]="!isReadyToSave" strong>
+      <ion-icon ios="ios-checkmark" md="md-checkmark"></ion-icon>
       </button>
   </ion-fab>
   <ion-fab left bottom>
-    <button ion-fab (click)="cancel()">
-      <span color="danger" showWhen="ios">
-        {{ 'CANCEL_BUTTON' | translate }}
-      </span>
-      <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+    <button color="light" ion-fab (click)="cancel()">
+      <ion-icon ios="ios-close" md="md-close"></ion-icon>
     </button>
   </ion-fab>
 </ion-content>

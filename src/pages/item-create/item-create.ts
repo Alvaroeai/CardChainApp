@@ -48,7 +48,7 @@ export class ItemCreatePage {
     console.log('custom:'+this.marca.custom);
 
     //  this.image_front = this.marca.image_front;
-  //    this.image_back = this.marca.image_back;
+    //  this.image_back = this.marca.image_back;
 
     this.form = formBuilder.group({
       img: [this.marca.img],
@@ -71,19 +71,15 @@ export class ItemCreatePage {
     });
   }
 
-  encodeText(type, data){
-    this.barcodeScanner.encode(type,data).then((encodedData) => {
-        console.log('type:'+type);
-        console.log('data:'+data);
-
-        this.encodedData = encodedData;
-        //this.demoImg.nativeElement.src = encodedData.file;
-        this.form.patchValue({ 'code_image': encodedData.file });
-          this.imageCode = encodedData.file;
-        //this.imageCode.nativeElement.src = encodedData.file;
-        //this.form.patchValue({ 'img': encodedData.file });
+  encodeText(format,text) {
+    this.barcodeScanner.encode(format,text).then((encodedData) => {
+      console.log(encodedData);
+      this.encodedData = encodedData;
+    //  this.imageCode = encodedData.f ile
+      this.form.patchValue({ 'imageCode': encodedData.file });
+      //this.imageCode.nativeElement.src = encodedData.file;
     }, (err) => {
-        console.log("Error occured : " + err);
+      console.log("Error occured : " + err);
     });
   }
 
@@ -96,6 +92,7 @@ export class ItemCreatePage {
           console.log(barcodeData.format);
           console.log(barcodeData.cancelled);
           this.scanData = barcodeData;
+          this.encodeData = barcodeData.text;
       }, (err) => {
           console.log("Error occured : " + err);
       });
@@ -109,11 +106,14 @@ export class ItemCreatePage {
     this.barcodeScanner.scan(this.options).then((barcodeData) => {
     // Success! Barcode data is here
       console.log('Success! Barcode data is here'+ barcodeData);
+      console.log(barcodeData);
       this.scanData = barcodeData;
+      this.encodeData = barcodeData.text;
       this.form.patchValue({ 'code': barcodeData.text });
       this.form.patchValue({ 'format': barcodeData.format });
 
-      this.encodeText(barcodeData.format,barcodeData.text)
+    //  this.encodeText(this.barcodeData.Encode.TEXT_TYPE,barcodeData.text);
+
       //this.encodeText(this.barcodeScanner.Encode.TEXT_TYPE,this.scanData)
     }, (err) => {
       // An error occurred

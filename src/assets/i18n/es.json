@@ -5,7 +5,7 @@
   "LOGIN": "Iniciar sesión",
   "SIGNUP": "Registrarse",
 
-  "TAB1_TITLE": "Tarjetas",
+  "TAB1_TITLE": "Mis Tarjetas",
   "TAB2_TITLE": "Buscar",
   "TAB3_TITLE": "Ajustes",
 
@@ -22,7 +22,7 @@
 
   "SETTINGS_TITLE": "Ajustes",
   "SETTINGS_OPTION1": "Opción 1",
-  "SETTINGS_OPTION2": "Opción 2",
+  "SETTINGS_OPTION2": "Touch ID",
   "SETTINGS_OPTION3": "Opción 3",
   "SETTINGS_OPTION4": "Opción 4",
 
@@ -44,5 +44,15 @@
 
   "CARDS_TITLE": "Social",
   "ITEM_ABOUT_PLACEHOLDER": "Número de Tarjeta",
-  "SEARCH_TITLE": "Buscar"
+  "SEARCH_TITLE": "Buscar",
+  "SEARCH_PLACEHOLDER": "Busca una tarjeta",
+
+  "SETTINGS_BLOCK_TITLE_1":"Mi Cuenta",
+  "SETTINGS_BLOCK_TITLE_2":"Seguridad",
+  "SETTINGS_BLOCK_TITLE_3":"Información",
+
+  "SETTINGS_PROFILE_BUTTON": "Editar mi cuenta",
+  "SETTINGS_LEGAL1": "Condiciones de uso",
+  "SETTINGS_LEGAL2": "Privacidad",
+  "SETTINGS_LEGAL3": "Aviso legal"
 }

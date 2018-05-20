@@ -12,6 +12,7 @@ import { CardIO } from '@ionic-native/card-io';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
+import { Brightness } from '@ionic-native/brightness';
 import JsBarcode from 'jsbarcode';
 
 import { Items } from '../mocks/providers/items';
@@ -76,6 +77,7 @@ export function provideSettings(storage: Storage) {
     Marcas,
     BarcodeScanner,
     QRScanner,
+    Brightness,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
