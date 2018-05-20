@@ -22,6 +22,7 @@ export class ItemDetailPage {
   @ViewChild('barcode') barcode: ElementRef;
   scanData: {};
   encodeData: string;
+  brightnessValue: string;
   imageCode: string;
   showBarcode: boolean =  true;
   showQRCode: boolean =  true;

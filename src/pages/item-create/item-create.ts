@@ -6,8 +6,11 @@ import { Platform, ActionSheetController, LoadingController } from 'ionic-angula
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { CardIO } from '@ionic-native/card-io';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
+
 
 import Tesseract from 'tesseract.js';
+import JsBarcode from 'jsbarcode';
 
 @IonicPage()
 @Component({
@@ -19,10 +22,13 @@ export class ItemCreatePage {
   @ViewChild('demoImg') private demoImg: ElementRef;
 
   @ViewChild('fileInput') fileInput;
+  @ViewChild('barcode') barcode: ElementRef;
   scanData : {};
   encodeData : string ;
   encodedData : {} ;
   imageCode: string ;
+  codeVisible: boolean ;
+  SuperTitle: string ;
   options :BarcodeScannerOptions;
   isReadyToSave: boolean;
   item: any;
@@ -37,6 +43,7 @@ export class ItemCreatePage {
     public actionsheetCtrl: ActionSheetController,
     public platform: Platform,
     public navParams: NavParams,
+    private cameraPreview: CameraPreview,
     public viewCtrl: ViewController,
     formBuilder: FormBuilder,
     private cardIO: CardIO,
@@ -47,8 +54,11 @@ export class ItemCreatePage {
     console.log(this.marca.name);
     console.log('custom:'+this.marca.custom);
 
+
+
     //  this.image_front = this.marca.image_front;
     //  this.image_back = this.marca.image_back;
+
 
     this.form = formBuilder.group({
       img: [this.marca.img],
@@ -65,22 +75,39 @@ export class ItemCreatePage {
       image_front: [this.marca.image_front],
     });
 
+    if(this.marca.custom==false){
+      this.form.patchValue({ 'name': ''});
+      this.form.patchValue({ 'img': ''});
+  }
+
     // Watch the form for changes, and
     this.form.valueChanges.subscribe((v) => {
       this.isReadyToSave = this.form.valid;
     });
   }
 
-  encodeText(format,text) {
-    this.barcodeScanner.encode(format,text).then((encodedData) => {
-      console.log(encodedData);
-      this.encodedData = encodedData;
-    //  this.imageCode = encodedData.f ile
-      this.form.patchValue({ 'imageCode': encodedData.file });
-      //this.imageCode.nativeElement.src = encodedData.file;
-    }, (err) => {
-      console.log("Error occured : " + err);
-    });
+  encodeText() {
+    console.log(this.form.controls.code.value);
+    this.codeVisible = true;
+    JsBarcode(this.barcode.nativeElement, this.form.controls.code.value);
+
+
+
+    // this.barcodeScanner.encode(format,text).then((encodedData) => {
+    //   console.log(encodedData);
+    //   this.encodedData = encodedData;
+    // //  this.imageCode = encodedData.file
+    //   this.form.patchValue({ 'imageCode': encodedData.file });
+    //   //this.imageCode.nativeElement.src = encodedData.file;
+    // }, (err) => {
+    //   console.log("Error occured : " + err);
+    // });
+  }
+
+  titleText() {
+    console.log(this.form.controls.name.value);
+
+    this.SuperTitle = this.form.controls.name.value;
   }
 
   scan(){
@@ -111,10 +138,9 @@ export class ItemCreatePage {
       this.encodeData = barcodeData.text;
       this.form.patchValue({ 'code': barcodeData.text });
       this.form.patchValue({ 'format': barcodeData.format });
-
-    //  this.encodeText(this.barcodeData.Encode.TEXT_TYPE,barcodeData.text);
-
-      //this.encodeText(this.barcodeScanner.Encode.TEXT_TYPE,this.scanData)
+      JsBarcode(this.barcode.nativeElement, barcodeData.text);
+      //this.encodeText(this.barcodeData.Encode.TEXT_TYPE,barcodeData.text);
+      //this.encodeText(this.barcodeScanner.Encode.TEXT_TYPE,this.scanData);
     }, (err) => {
       // An error occurred
       console.log('An error occurred'+ err);
@@ -128,7 +154,6 @@ export class ItemCreatePage {
   .then((status: QRScannerStatus) => {
      if (status.authorized) {
        // camera permission was granted
-
 
        // start scanning
        let scanSub = this.qrScanner.scan().subscribe((text: string) => {
@@ -258,11 +283,72 @@ getCardIO() {
     this.viewCtrl.dismiss(this.form.value);
   }
 
+
+
+
+
+
    ionViewDidLoad() {
+
+     // camera options (Size and location). In the following example, the preview uses the rear camera and display the preview in the back of the webview
+   const cameraPreviewOpts: CameraPreviewOptions = {
+     x: 0,
+     y: 0,
+     width: window.screen.width,
+     height: window.screen.height,
+     camera: 'rear',
+     tapPhoto: true,
+     previewDrag: true,
+     toBack: true,
+     alpha: 1
+   };
 
    //  alert(this.marca.type);
      if(this.marca.type=='barcode'){
-       this.ScanBarcode();
+       //this.ScanBarcode();
+
+       // Switch camera
+      this.cameraPreview.switchCamera();
+
+      // set color effect to negative
+      this.cameraPreview.setColorEffect('negative');
+
+
+
+
+      // start camera
+      this.cameraPreview.startCamera(cameraPreviewOpts).then(
+        (res) => {
+          console.log(res)
+        },
+        (err) => {
+          console.log(err)
+        });
+
+      // Set the handler to run every time we take a picture
+      // this.cameraPreview.setOnPictureTakenHandler().subscribe((result) => {
+      //   console.log(result);
+      //   // do something with the result
+      // });
+
+
+      // picture options
+      const pictureOpts: CameraPreviewPictureOptions = {
+        width: 1280,
+        height: 1280,
+        quality: 85
+      }
+
+      // take a picture
+      // this.cameraPreview.takePicture(this.pictureOpts).then((imageData) => {
+      //   this.picture = 'data:image/jpeg;base64,' + imageData;
+      // }, (err) => {
+      //   console.log(err);
+      //   this.picture = 'assets/img/test.jpg';
+      // });
+      // Stop the camera preview
+      //this.cameraPreview.stopCamera();
+
      } else if(this.marca.type=='qr'){
        this.ScanQR();
      } else if(this.marca.type=='ocr'){

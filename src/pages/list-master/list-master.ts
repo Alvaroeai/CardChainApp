@@ -4,9 +4,10 @@ import { IonicPage, ModalController, NavController } from 'ionic-angular';
 import { Item } from '../../models/item';
 import { Items } from '../../providers/providers';
 import { Brightness } from '@ionic-native/brightness';
-
+import { TouchID } from '@ionic-native/touch-id';
 
 const STORAGE_KEY = 'CardChain';
+const BrightnessVal = 0.5;
 
 @IonicPage()
 @Component({
@@ -16,13 +17,11 @@ const STORAGE_KEY = 'CardChain';
 export class ListMasterPage {
   currentItems: Item[];
 
-  constructor(public navCtrl: NavController, private brightness: Brightness, public items: Items, public modalCtrl: ModalController) {
-    if(BrightnessVal==undefined){
-      const BrightnessVal = this.brightness.getBrightness();
-      console.log('BrightnessVal'+BrightnessVal);
-    } else {
-      this.brightness.setBrightness(BrightnessVal);
-    }
+
+  constructor(public navCtrl: NavController,private touchId: TouchID, private brightness: Brightness, public items: Items, public modalCtrl: ModalController) {
+
+  //  BrightnessVal = this.brightness.getBrightness();
+    //this.brightness.setBrightness(BrightnessVal);
     this.currentItems = this.items.query();
     console.log('this.currentItems'+this.currentItems);
     console.log('this.items.query()'+this.items.query());
@@ -32,6 +31,10 @@ export class ListMasterPage {
    * The view loaded, let's query our items for the list
    */
   ionViewDidLoad() {
+    this.touchId.isAvailable().then(
+    res => console.log('TouchID is available!'),
+    err => console.error('TouchID is not available', err)
+  );
   }
 
   /**

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { TouchID } from '@ionic-native/touch-id';
 
 import { Settings } from '../../providers/providers';
 
@@ -36,6 +37,7 @@ export class SettingsPage {
 
   constructor(public navCtrl: NavController,
     public settings: Settings,
+    private touchId: TouchID,
     public formBuilder: FormBuilder,
     public navParams: NavParams,
     public translate: TranslateService) {

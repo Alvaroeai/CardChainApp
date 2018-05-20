@@ -13,6 +13,8 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { BarcodeScanner, BarcodeScannerOptions } from '@ionic-native/barcode-scanner';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 import { Brightness } from '@ionic-native/brightness';
+import { TouchID } from '@ionic-native/touch-id';
+import { CameraPreview, CameraPreviewPictureOptions, CameraPreviewOptions, CameraPreviewDimensions } from '@ionic-native/camera-preview';
 import JsBarcode from 'jsbarcode';
 
 import { Items } from '../mocks/providers/items';
@@ -78,6 +80,8 @@ export function provideSettings(storage: Storage) {
     BarcodeScanner,
     QRScanner,
     Brightness,
+    CameraPreview,
+    TouchID,
     SplashScreen,
     StatusBar,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
