@@ -41,10 +41,13 @@ export class ItemDetailPage {
     JsBarcode(this.barcode.nativeElement, this.item.code);
     this.encodeText();
     console.log(this.item.type);
+
+
+
+
     if(this.item.type == 'barcode'){
       this.showBarcode = true;
       this.showQRCode = false;
-
     } else {
     this.showBarcode = false;
     this.showQRCode = true;

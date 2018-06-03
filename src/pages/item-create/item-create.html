@@ -19,7 +19,7 @@
     </ion-buttons> -->
   </ion-navbar>
 </ion-header>
-<ion-content [style.background-color]="marca.color">
+<ion-content [style.background-color]="marca.color"  class="card-background-page">
   <div class="profile-image-wrapper" (click)="getPicture()">
     <!-- <div class="profile-image-placeholder" *ngIf="!this.form.controls.img.value">
       <ion-icon name="add"></ion-icon>
@@ -27,8 +27,8 @@
         {{ 'ITEM_CREATE_CHOOSE_IMAGE' | translate }}
       </div>
     </div> -->
-    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.img.value"></div>
-    <h3 class="SuperTitle">{{SuperTitle}}</h3>
+    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" *ngIf="this.form.controls.img.value"> <h3 class="SuperTitle" >{{SuperTitle}}</h3></div>
+
   </div>
 
   <form *ngIf="form" [formGroup]="form" (ngSubmit)="createItem()">
@@ -41,6 +41,21 @@
             <ion-item [class.hide]="marca.custom">
               <ion-label color="primary" stacked>{{ 'ITEM_NAME_PLACEHOLDER' | translate }}</ion-label>
               <ion-input type="text" placeholder="{{ 'ITEM_NAME_PLACEHOLDER' | translate }}"  (ionChange)="titleText()" formControlName="name">{{marca.name}}</ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label color="primary" stacked>{{ 'ITEM_COLOR_PLACEHOLDER' | translate }}</ion-label>
+               <ion-select formControlName="color" (ionChange)="ChangeColor()">
+                 <ion-option selected style="background-color: white" class="white" value="white">white</ion-option>
+                 <ion-option style="background-color: black" class="black" value="black">black</ion-option>
+                 <ion-option style="background-color: red " class="red" value="red">red</ion-option>
+                 <ion-option style="background-color: orange" class="orange" value="orange">orange</ion-option>
+                 <ion-option style="background-color: yellow" class="yellow" value="yellow">yellow</ion-option>
+                 <ion-option style="background-color: green" class="green"  value="green">green</ion-option>
+                 <ion-option style="background-color: blue " class="blue"  value="blue">blue</ion-option>
+                 <ion-option style="background-color: teal " class="teal"  value="teal">teal</ion-option>
+                 <ion-option style="background-color: pink" class="pink"  value="pink">pink</ion-option>
+                 <ion-option style="background-color: purple" class="purple"  value="purple">purple</ion-option>
+             </ion-select>
             </ion-item>
             <ion-item>
               <ion-label color="primary" stacked>{{ 'ITEM_ABOUT_PLACEHOLDER' | translate }}</ion-label>

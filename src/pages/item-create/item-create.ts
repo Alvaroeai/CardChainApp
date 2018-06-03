@@ -77,7 +77,7 @@ export class ItemCreatePage {
 
     if(this.marca.custom==false){
       this.form.patchValue({ 'name': ''});
-      this.form.patchValue({ 'img': ''});
+      //this.form.patchValue({ 'img': ''});
   }
 
     // Watch the form for changes, and
@@ -106,9 +106,15 @@ export class ItemCreatePage {
 
   titleText() {
     console.log(this.form.controls.name.value);
-
-    this.SuperTitle = this.form.controls.name.value;
+    this.marca = this.form.controls.name.value;
   }
+
+
+  ChangeColor() {
+    console.log(this.form.controls.name.value);
+    this.marca.color = this.form.controls.color.value;
+  }
+
 
   scan(){
       this.options = {

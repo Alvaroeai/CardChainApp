@@ -5,7 +5,8 @@
 </ion-header>
 <ion-content [style.background-color]="item.color">
   <div class="profile-image-wrapper" [style.background-color]="item.color">
-    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" ></div>
+
+    <div class="profile-image" [style.backgroundImage]="getProfileImageStyle()" > <h3 class="SuperTitle" *ngIf="item.custom==false">{{ item.name }}</h3></div>
   </div>
   <!--div class="item-profile" text-center #img [style.background-image]="'url(' + item.img + ')'">
   </div-->

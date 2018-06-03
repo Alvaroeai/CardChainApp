@@ -19,7 +19,7 @@ export class Marcas {
 
     let marcas = [{
       "name": "Otra tarjeta",
-      "img": "assets/img/cards/front.png",
+      "img": "assets/img/cards/blank.png",
       "about": "",
       "type": "barcode",
       "color": "red",
